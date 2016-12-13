@@ -1,9 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package co.mpc.frontend.usuarios.beans;
 
 import co.mpc.backend.bussiness.security.SessionBeanLogin;
@@ -82,9 +76,8 @@ public class UsuarioManagedBean implements Serializable,IManagedBean<Usuario>{
         FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Usuario o contraseña no válido."));
         return null;
     }
-    
     public void actualizarUsuario(){
         uFL.edit(usuario);
-    }
     
+    }  
 }

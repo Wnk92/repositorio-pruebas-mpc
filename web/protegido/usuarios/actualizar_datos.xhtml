@@ -1,12 +1,212 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
-    <h:head>
-        <title>Facelet Title</title>
-    </h:head>
-    <h:body>
-        Hello from Facelets
-    </h:body>
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <body>
+
+       <ui:composition template="./../../resources/plantillampc.xhtml">
+
+         <ui:define name="main">
+                <aside>
+                    <a href="inicio.html"><i class="mpc-home"></i>Inicio</a>
+                    <a href="lista_vehiculos.html"><i class="mpc-book"></i>Vehículos</a>
+                    <a href="#0"><i class="mpc-clipboard"></i>Ficha técnica</a>
+                    <a href="lista_componentes.html"><i class="mpc-droplet"></i>Componentes</a>
+                    <a href="lista_de_ordenes.html"><i class="mpc-list-alt"></i>Ordenes</a>
+                    <a href="#0"><i class="mpc-chart-bar"></i>Estadisticas</a>
+                    <a href="reportes.html"><i class="mpc-book-1"></i>Reportes</a>
+                    <a href="lista_usuarios.xhtml"><i class="mpc-users"></i>Usuarios</a>
+                </aside>
+                <div class="row sin-margen caja miga">
+                    <div class="col-xs-12 col-sm-6">
+                        <ol class="breadcrumb">
+                            <li><a href="inicio.html"><i class="mpc-home"></i>Inicio</a></li>
+                            <li class="active"><i class="mpc-users"></i>Usuarios</li>
+                        </ol>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 titulo-pagina">
+                        <h1>Usuarios</h1>
+                        <div class="dash-titulo"></div>
+                        <div class="informacion-titular">
+                            <p class="letra success">8 activos</p>
+                            <p class="letra warning">2 pendientes</p>
+                            <p class="letra danger">1 inactivo</p>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 start-xs cuadro-interaccion">
+                        <a href="registrar_usuario.xhtml" class="btn btn-primary"><i class="mpc-plus"></i>Nuevo Usuario</a>
+                    </div>
+                </div>
+                <!-- Contenido -->
+              <div class="row">
+                  <div class="form-group col-xs-6 col-md-3" align="center">
+                  <label class="control-label">Nombres *</label>
+                  <input type="text" class="form-control" name="nombres" placeholder="Jose Miguel" />
+              </div>
+              <div class="form-group col-xs-12 col-md-3">
+                  <label class="control-label">Apellidos *</label>
+                  <input type="text" class="form-control" name="apellidos" placeholder="Ramiréz Léon" />
+              </div>
+            </div>
+                   <div class="row">
+              <div class="form-group col-xs-12 col-sm-3">
+                <label class="control-label">Fecha nacimento *</label>
+                <input type="date" class="form-control" id="fechaNacimiento" name="nfechaNacimiento" placeholder="__/__/____"></input>
+              </div>
+              <div class="form-group col-xs-12 col-sm-3 ">
+                <label class="control-label">Genero</label>
+                <div class="radio">
+                    <label>
+                        <input type="radio" name="genero" value="male" /> Hombre
+                    </label>
+                </div>
+                <div class="radio">
+                    <label>
+                        <input type="radio" name="genero" value="female" /> Mujer
+                    </label>
+                </div>
+                <div class="radio">
+                    <label>
+                        <input type="radio" name="genero" value="other" /> Otro
+                    </label>
+                </div>
+              </div>
+            </div>
+                  <div class="row">
+              <div class="col-xs-12 col-md-3">
+                  <label class="control-label">Numero Teléfono</label>
+                  <input type="text" class="form-control" id="telefono" placeholder="777-0836" />
+              </div>
+              <div class="form-group col-xs-12 col-md-3">
+                    <label class="control-label">Numero Celular *</label>
+                    <input type="text" class="form-control" id="celular" name="nCelular" placeholder="312-356-23-12" />
+              </div>
+            </div>
+                <div class="form-group">
+              <div class="row">
+                <div class="col-xs-6">
+                    <label class=" control-label">Correo electrónico *</label>
+                    <input type="text" class="form-control" name="email" />
+                </div>
+              </div>
+            </div>
+                <div class="row">
+              <div class="form-group col-xs-6">
+                <label class="control-label">Número de identidicación *</label>
+                <input type="text" class="form-control" id="cedula" name="ncedula" placeholder="567453612" />
+              </div>
+            </div>
+                <div class="row">
+              <div class="form-group col-xs-6 flexible between-xs middle-xs">
+                <label >Generar Contraseña</label>
+                <div class="flexible">
+                  <input id="password" type="text" class="form-control" name="npassword" value="" placeholder="------"/>
+                  <a class="btn btn-mpc" id="generar-password"><i class="mpc-refresh"></i></a>
+                </div>
+              </div>
+            </div>
+                 <div class="form-group">
+                <div class="col-xs-6">
+                  <button type="submit" id="enviar" class="btn btn-primary btn-block" name="signup" value="Sign up">Registrar nuevo usuario</button>
+                </div>
+            </div>
+                <h:outputScript name="js/jquery-dist.js"/>
+                <h:outputScript name="js/boostrap-dist.js"/>
+                <h:outputScript name="js/core-dist.js"/>
+                <h:outputScript name="js/jquery-datatables-dist.js"/>
+                <h:outputScript name="js/dataTables-boostrap-dist.js"/>
+                <script>
+                    $('#tabla').DataTable();
+                     $(document).ready(function() {
+        $('#password').val($.passGen());
+        $('#generar-password').on('click',function(){
+          $('#password').val($.passGen());
+        });
+        $('#telefono').mask('0000000');
+        $('#celular').mask('0000000000');
+        $('#cedula').mask('0#');
+        $('#formularioRegistroUsuario')
+          .formValidation({
+            framework: 'bootstrap',
+            fields: {
+              nombres: {
+                  validators: {
+                      notEmpty: {
+                          message: 'Los nombres son requeridos.'
+                      }
+                  }
+              },
+              apellidos: {
+                  validators: {
+                      notEmpty: {
+                          message: 'Los apellidos son requeridos.'
+                      }
+                  }
+              },
+              nfechaNacimiento: {
+                  validators: {
+                      notEmpty: {
+                          message: 'Se requiere de la fecha.'
+                      },
+                      date: {
+                          format: 'DD/MM/YYYY',
+                          message: 'La fecha no tiene un formato valido.'
+                      }
+                  }
+              },
+              genero: {
+                validators: {
+                  notEmpty: {
+                    message: 'Se necesita de un genero.'
+                  }
+                }
+              },
+              nCelular: {
+                validators: {
+                  notEmpty: {
+                    message: 'Se requiere de un número celular'
+                  },
+                  stringLength: {
+                    min: 9,
+                    max: 13,
+                    message: 'Minimo 7 números.'
+                  }
+                }
+              },
+              email: {
+                validators: {
+                  notEmpty: {
+                    message: 'Se require de un email.'
+                  },
+                  emailAddress: {
+                    message: 'Email invalido.'
+                  }
+                }
+              },
+              ncedula: {
+                validators: {
+                  notEmpty: {
+                    message: 'Se requiere de un número de identificación.'
+                  },
+                  stringLength: {
+                    min: 7,
+                    max: 11,
+                    message: 'Minimo 7 números, Máximo 11.'
+                  }
+                }
+              }
+            }
+          });
+      });
+                </script>
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
 </html>
+
 
