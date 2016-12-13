@@ -1,12 +1,301 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
-    <h:head>
-        <title>Facelet Title</title>
-    </h:head>
-    <h:body>
-        Hello from Facelets
-    </h:body>
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <body>
+
+        <ui:composition template="./../../resources/plantillampc.xhtml">
+
+            <ui:define name="main">
+                <aside>
+                    <a href="inicio.html"><i class="mpc-home"></i>Inicio</a>
+                    <a href="lista_vehiculos.html"><i class="mpc-book"></i>Vehículos</a>
+                    <a href="#0"><i class="mpc-clipboard"></i>Ficha técnica</a>
+                    <a href="lista_componentes.html"><i class="mpc-droplet"></i>Componentes</a>
+                    <a href="lista_de_ordenes.html"><i class="mpc-list-alt"></i>Ordenes</a>
+                    <a href="#0"><i class="mpc-chart-bar"></i>Estadisticas</a>
+                    <a href="reportes.html"><i class="mpc-book-1"></i>Reportes</a>
+                    <a href="lista_usuarios.xhtml"><i class="mpc-users"></i>Usuarios</a>
+                </aside>
+                <div class="row sin-margen caja miga">
+                    <div class="col-xs-12 col-sm-6">
+                        <ol class="breadcrumb">
+                            <li><a href="inicio.html"><i class="mpc-home"></i>Inicio</a></li>
+                            <li class="active"><i class="mpc-list-alt"></i>Lista de Usuarios</li>
+                        </ol>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 titulo-pagina">
+                        <h1>Usuarios</h1>
+                        <div class="dash-titulo"></div>
+                        <div class="informacion-titular">
+                            <p class="letra success">8 activos</p>
+                            <p class="letra warning">2 pendientes</p>
+                            <p class="letra danger">1 inactivo</p>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 start-xs cuadro-interaccion">
+                        <a href="registrar_usuario.xhtml" class="btn btn-primary"><i class="mpc-plus"></i>Registar Usuario</a>
+                    </div>
+                </div>
+                <!-- Contenido -->
+                  <div class="col-xs-12 col-md-6 informacion-perfil first-xs first-sm first-md">
+                <h3>Camilo Andres Bermudez</h3>
+                <h4><i>Super administrador</i></h4><br></br>
+                <div class="img-perfil right"></div>
+                <hr></hr>
+                <section class="info">
+                    <table>
+                        <tr>
+                            <td><i class="mpc-cedula"></i></td>
+                            <td>1012475243</td>
+                        </tr>
+                        <tr>
+                            <td><i class="mpc-map"></i></td>
+                            <td>kr 82 f # 105</td>
+                        </tr>
+                        <tr>
+                            <td><i class="mpc-phone"></i></td>
+                            <td>3123758531</td>
+                        </tr>
+                        <tr>
+                            <td><i class="mpc-mail"></i></td>
+                            <td>camilobermidez@colex.com</td>
+                        </tr>
+                    </table>
+                </section>
+            </div>
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-6">
+                            <h1>
+                                <small>Información</small>
+                            </h1>
+                        </div>
+                        <div class="col-xs-12 col-sm-6 end-sm start-xs">
+                            <a href="#" class="btn btn-default btn-md" data-toggle="modal" data-target="#actualizar_password"><i class="mpc-key"></i>Actulizar contraseña</a>
+                            <a id="habilitar-actualizacion" class="btn btn-mpc"><i class="mpc-edit"></i>Editar</a>
+                            <a id="preguntar-actualizar-informacion" class="btn btn-success no-ver">Actualizar</a>
+                        </div>
+                        <div id="notifica-edicion" class="alert alert-danger col-xs-12 no-ver">
+                            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                            <strong>Modo edición activo</strong>
+                        </div>
+                    </div>
+                 <div class="row">
+                        <div class="form-group col-xs-12 col-sm-6">
+                            <label class="control-label " for="nombre-perfil">
+                 Número Cédula
+                </label>
+                            <input class="form-control" id="numero-cedula" name="numero-cedula" value="1023654121" type="text"/>
+                        </div>
+                        <div class="form-group col-xs-12 col-sm-6">
+                            <label class="control-label " for="nombre-perfil">
+                 Nombre
+                </label>
+                            <input class="form-control" id="nombre-perfil" name="nombre-perfil" value="Camilo Andres" type="text"/>
+                        </div>
+                        <div class="form-group col-xs-12 col-sm-6">
+                            <label class="control-label " for="apellido-perfil">
+                 Apellidos
+                </label>
+                            <input class="form-control" id="apellido-perfil" name="apellido-perfil" value="Bermudez Diaz" type="text"/>
+                        </div>
+                        <div class="form-group col-xs-12 col-sm-6">
+                            <label class="control-label " for="name2">
+                 Dirección
+                </label>
+                            <input class="form-control" id="name2" name="name2" value="kr 82 f # 105" type="text"/>
+                        </div>
+                        <div class="form-group col-xs-12 col-sm-6">
+                            <label class="control-label " for="email-perfil">
+                 Correo electrónico
+                </label>
+                            <input class="form-control" id="email-perfil" name="email-perfil" value="camilobermidez@colex.com" type="text"/>
+                        </div>
+                        <div class="form-group col-xs-12 col-sm-6">
+                            <label class="control-label " for="telefono-perfil">
+                 Número telefono
+                </label>
+                            <input class="form-control" id="telefono-perfil" name="telefono-perfil" value="#{usuarioManagedBean.actualizarUsuario()}" type="text"/>
+                        </div>
+                        
+                    </div>
+                <h:outputScript name="js/jquery-dist.js"/>
+                <h:outputScript name="js/boostrap-dist.js"/>
+                <h:outputScript name="js/core-dist.js"/>
+                <h:outputScript name="js/jquery-datatables-dist.js"/>
+                <h:outputScript name="js/dataTables-boostrap-dist.js"/>
+                <script>
+                    $('#tabla').DataTable();
+                      $('#actualizar_password').on('hidden.bs.modal', function() {
+            $('#formulario_password').formValidation('resetForm', true);
+        });
+
+        $('[name="numero-cedula"]').mask('#');
+        $('[name="nombre-perfil"]').css({'text-transform': 'capitalize'}).validCampoFranz(' abcdefghijklmnñopqrstuvwxyzáéiou');
+        $('[name="apellido-perfil"]').css({'text-transform': 'capitalize'}).validCampoFranz(' abcdefghijklmnñopqrstuvwxyzáéiou');
+        $('[name="telefono-perfil"]').mask('#');
+
+
+        //Validación
+        $('#formulario_password')
+            .formValidation({
+                framework: 'bootstrap',
+                fields: {
+                    pActual: {
+                        validators: {
+                            notEmpty: {
+                                message: 'Se requiere de su contraseña actual.'
+                            }
+                        }
+                    },
+                    nPassword: {
+                        validators: {
+                            notEmpty: {
+                                message: 'La contraseña es necesaria y no puede estar vacía.'
+                            },
+                            stringLength : {
+                                min: 6,
+                                max: 20,
+                                message: 'La contraseña es muy corta, minimo 6 caracteres'
+                            }
+                        }
+                    },
+                    cnPassword: {
+                        validators: {
+                            notEmpty: {
+                                message: 'La confirmación de contraseña es requerida.'
+                            },
+                            identical: {
+                                field: 'nPassword',
+                                message: 'No coinciden'
+                            }
+                        }
+                    }
+                }
+            })
+            // Enable the password/confirm password validators if the password is not empty
+            .on('keyup', '[name="nPassword"]', function() {
+                var isEmpty = $(this).val() == '';
+                $('#formulario_password')
+                    .formValidation('enableFieldValidators', 'nPassword', !isEmpty)
+                    .formValidation('enableFieldValidators', 'cnPassword', !isEmpty);
+
+                // Revalidate the field when user start typing in the password field
+                if ($(this).val().length == 1) {
+                    $('#formulario_password').formValidation('validateField', 'nPassword')
+                        .formValidation('validateField', 'cnPassword');
+                }
+            })
+            .on('success.form.fv', function(e){
+                e.preventDefault();
+                $('#actualizar_password').modal('hide');
+                var $form = $(e.target);
+                var fv = $form.data('formValidation');
+                $.alert({
+                    columnClass: 'col-md-6 col-md-offset-3 col-xs-8 col-xs-offset-2',
+                    theme: 'black',
+                    title: false,
+                    content: '<i class="mpc-check"></i>Contraseña actualizada con éxito.',
+                    confirmButton: 'cerrar',
+                    confirm: function(){
+                        fv.defaultSubmit();
+                    }
+                });
+            })
+        //Foto perfil
+        $('#preguntar-actualizar-informacion').on('click', function() {
+            if ($('[name="fotoPerfil"]').val() == '') { 
+            }else {
+                // alert('jaja');
+                $('.img-perfil').css({'background':'url(../img/usuarios/avatar.png)', 'background-size':'cover'});
+            }
+        })
+
+        //Charts
+        var ctx = document.getElementById("myChart");
+        var myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre'],
+                datasets: [{
+                    label: "Canceladas",
+                    backgroundColor: '#f14444',
+                    borderWidth: 1,
+                    data: [3, 2, 1, 3]
+                }, {
+                    label: "Finalizadas",
+                    backgroundColor: '#34495e',
+                    borderWidth: 1,
+                    data: [4, 6, 3, 4]
+                }, {
+                    label: 'En ejecución',
+                    backgroundColor: '#2ecc71',
+                    borderWidth: 1,
+                    data: [0, 0, 2, 4]
+                }]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            max: 7,
+                            min: 0,
+                            stepSize: 1
+                        }
+                    }]
+                }
+            }
+        });
+        $('#habilitar-actualizacion').on('click', function() {
+            $.confirm({
+                columnClass: 'col-md-6 col-md-offset-3 col-xs-8 col-xs-offset-2',
+                theme: 'black',
+                title: '¿Habilitar edición?',
+                content: 'Permitir actualizar información personal',
+                confirmButton: 'Editar',
+                cancelButton: 'Cancelar',
+                cancelButtonClass: 'btn-danger',
+                confirm: function() {
+                    $('#habilitar-actualizacion').addClass('no-ver'),
+                        $('#preguntar-actualizar-informacion').removeClass('no-ver'),
+                        $('#notifica-edicion').removeClass('no-ver'),
+                        $('#formulario_datos input').attr('disabled', false)
+                }
+            });
+        });
+        $('#preguntar-actualizar-informacion').on('click', function() {
+            $.alert({
+                columnClass: 'col-md-6 col-md-offset-3 col-xs-8 col-xs-offset-2',
+                title: '',
+                content: 'url:text',
+                theme: 'black',
+                animation: 'zoom',
+                closeAnimation: 'scale',
+                confirmButtonClass: 'btn-success',
+                confirmButton: 'Terminar',
+                status: 'se han actualizado',
+                contentLoaded: function(data, status) {
+                    var self = this;
+                    setTimeout(function() {
+                            self.setContent('<center><h3><span class="mpc-check" style="color: lightgreen;"> </span> Los datos ' + self.status + '</h3></center>');
+                        }, 1000),
+                        $('#habilitar-actualizacion').removeClass('no-ver'),
+                        $('#preguntar-actualizar-informacion').addClass('no-ver'),
+                        $('#notifica-edicion').addClass('no-ver'),
+                        $('#formulario_datos input').attr('disabled', true)
+                }
+
+            });
+        });
+                </script>
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
 </html>
+
 

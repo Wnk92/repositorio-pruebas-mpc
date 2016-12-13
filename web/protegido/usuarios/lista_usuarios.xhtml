@@ -49,8 +49,25 @@
                                     <thead>
                                         <tr>
                                             <th>Nombre</th>
+                                            <th>Apellidos</th>
+                                            <th>Fecha de nacimiento</th>
+                                            <th>Cédula</th>
+                                            <th>Correo</th>
+                                            <th>Ciudad</th>
                                         </tr>
                                     </thead>
+                                    <ui:repeat value="#{usuarioManagedBean.listar()}" var="item">
+                                        <tbody>
+                                            <tr>
+                                                <td>#{item.nombres}</td>
+                                                <td>#{item.apellidos}</td>
+                                                <td>#{item.fechaNacimiento}</td>
+                                                <td>#{item.numeroCedula}</td>
+                                                <td>#{item.correoElectronico}</td>
+                                                <td>#{item.idCiudad.nombreCiudad}</td>
+                                            </tr>
+                                        </tbody>
+                                    </ui:repeat>
                                 </table>
                             </div>
                         </div>
