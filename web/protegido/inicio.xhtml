@@ -17,10 +17,12 @@
             </ui:define>
 
             <ui:define name="main">
-                <h:commandButton style="padding: 10px; margin: 20px" value="ordenes" action="ordenes/lista_ordenes.xhtml"/>
-                <h:commandButton style="padding: 10px; margin: 20px" value="usuarios" action="usuarios/lista_usuarios.xhtml"/>
-                <h:commandButton style="padding: 10px; margin: 20px" value="vehiculos" action="vehiculos/lista_vehiculos.xhtml"/>
-                <h:commandButton style="padding: 10px; margin: 20px" value="cerrar sesion"/>
+                <h:form>
+                    <h:commandButton style="padding: 10px; margin: 20px" value="ordenes" action="ordenes/lista_ordenes.xhtml"/>
+                    <h:commandButton style="padding: 10px; margin: 20px" value="usuarios" action="usuarios/lista_usuarios.xhtml"/>
+                    <h:commandButton style="padding: 10px; margin: 20px" value="vehiculos" action="vehiculos/lista_vehiculos.xhtml"/>
+                    <h:commandButton style="padding: 10px; margin: 20px" value="cerrar sesion"/>
+                </h:form>
             </ui:define>
 
         </ui:composition>

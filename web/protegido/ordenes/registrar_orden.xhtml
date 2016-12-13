@@ -1,0 +1,129 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:jsf="http://xmlns.jcp.org/jsf">
+
+    <body>
+
+        <ui:composition template="./../../resources/plantillampc.xhtml">
+
+            <ui:define name="main">
+                <f:view>
+                    <div class="row sin-margen caja miga">
+                        <div class="col-xs-12 col-sm-6">
+                            <ol class="breadcrumb">
+                                <li><a href="protegido/inicio.html"><i class="mpc-home"></i>Inicio</a></li>
+                                <li><a href="lista_ordenes.xhtml"><i class="mpc-list-alt"></i>Lista de órdenes</a></li>
+                                <li class="active"><i class="mpc-plus"></i>Nueva orden</li>
+                            </ol>
+                        </div>
+                        <div class="col-xs-12 col-sm-6 start-xs end-sm">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <h:form id="formularioRegistroUsuario" class="col-xs-12 col-md-6 caja blanca">
+                            <div class="flexible between-xs middle-xs col-xs-12">
+                                <h2>Registro de orden</h2>
+                                <a href="#0">Información</a>
+                            </div>
+                            <div class="col-xs-12">
+                                <h3>1. Datos generales.</h3>
+
+                                <div class="row">
+                                    <div class="form-group col-xs-12 col-md-6">
+                                        <label class="control-label">Matrícula del vehiculo *</label>
+                                        <h:selectOneMenu class="form-control" value="#{vehiculoManagedBean.vehiculo.idVehiculo}">
+                                            <f:selectItems value="#{vehiculoManagedBean.listar()}" var="lV" itemLabel="#{lV.matricula}"/>
+                                        </h:selectOneMenu>
+                                    </div>
+                                    <div class="form-group col-xs-12 col-md-6">
+                                        <label class="control-label">Tipo de orden *</label>
+
+                                        <h:selectOneMenu class="form-control" value="#{ordenManagedBean.orden.idTipoOrden}">
+                                            <f:selectItems value="#{tipoOrdenManagedBean.listarTipoOrden()}" var="lTO" itemLabel="#{lTO.nombreTipoOrden}"/>
+                                        </h:selectOneMenu>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="form-group col-xs-12 col-sm-6">
+                                        <label class="control-label">Usuario asociado *</label>
+                                        <h:selectOneMenu class="form-control" value="#{usuarioManagedBean.usuario.idUsuario}">
+                                            <f:selectItems value="#{usuarioManagedBean.listar()}" var="lU" itemLabel="#{lU.nombres}"/>
+                                        </h:selectOneMenu>
+                                    </div>
+                                    <div class="form-group col-xs-12 col-sm-6 ">
+                                        <label class="control-label">Motivo</label>
+                                        <h:selectOneMenu class="form-control" value="#{motivosOrdenManagedBean.motivoOrden.idMotivo}">
+                                            <f:selectItems value="#{motivosOrdenManagedBean.listarMotivoOrden()}" var="lMO" itemLabel="#{lMO.motivo}"/>
+                                        </h:selectOneMenu>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="form-group col-xs-12 col-md-6">
+                                        <label class="control-label">Fecha de emisión *</label>
+                                        <input type="text" class="form-control" name="marca" placeholder="2016-01-01" jsf:value="#{ordenManagedBean.orden.fechaEmision}"/>
+                                    </div>
+                                    <div class="form-group col-xs-12 col-md-6">
+                                        <label class="control-label">Plazo máximo *</label>
+                                        <input type="text" class="form-control" name="modelo" placeholder="2016-12-12" jsf:value="#{ordenManagedBean.orden.plazoMaximo}"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <h:commandButton value="Registrar" actionListener="#{ordenManagedBean.registrarOrden()}"/>
+
+                        </h:form>
+                    </div>
+                </f:view>
+                <f:view>
+                    <h:form>
+                        <h1><h:outputText value="Registrar Orden"/></h1>
+                        <h:panelGrid columns="2">
+                            <h:outputLabel value="FechaEmision:" for="fechaEmision" />
+                            <h:inputText id="fechaEmision" value="#{ordenManagedBean.orden.fechaEmision}" title="FechaEmision" required="true" requiredMessage="The FechaEmision field is required.">
+                                <f:convertDateTime pattern="MM/dd/yyyy" />
+                            </h:inputText>
+                            <h:outputLabel value="PlazoMaximo:" for="plazoMaximo" />
+                            <h:inputText id="plazoMaximo" value="#{ordenManagedBean.orden.plazoMaximo}" title="PlazoMaximo" required="true" requiredMessage="The PlazoMaximo field is required.">
+                                <f:convertDateTime pattern="MM/dd/yyyy" />
+                            </h:inputText>
+                            <h:outputLabel value="IdEstadoOrden:" for="idEstadoOrden" />
+                            <h:selectOneMenu id="idEstadoOrden" value="#{ordenManagedBean.orden.idEstadoOrden}" title="IdEstadoOrden" required="true" requiredMessage="The IdEstadoOrden field is required.">
+                                <!-- TODO: update below reference to list of available items-->
+                                <f:selectItems value="#{estadoOrdenManagedBean.listarEstadoOrden()}" var="lEO" itemLabel="#{lEO.nombreEstadoOrden}"/>
+                            </h:selectOneMenu>
+                            <h:outputLabel value="IdMotivo:" for="idMotivo" />
+                            <h:selectOneMenu id="idMotivo" value="#{ordenManagedBean.orden.idMotivo}" title="IdMotivo" required="true" requiredMessage="The IdMotivo field is required.">
+                                <!-- TODO: update below reference to list of available items-->
+                                <f:selectItems value="#{motivosOrdenManagedBean.listarMotivoOrden()}" var="lMOO" itemLabel="#{lMOO.motivo}"/>
+                            </h:selectOneMenu>
+                            <h:outputLabel value="IdTipoOrden:" for="idTipoOrden" />
+                            <h:selectOneMenu id="idTipoOrden" value="#{ordenManagedBean.orden.idTipoOrden}" title="IdTipoOrden" required="true" requiredMessage="The IdTipoOrden field is required.">
+                                <!-- TODO: update below reference to list of available items-->
+                                <f:selectItems value="#{tipoOrdenManagedBean.listarTipoOrden()}" var="lTOO" itemLabel="#{lTOO.nombreTipoOrden}"/>
+                            </h:selectOneMenu>
+                            <h:outputLabel value="IdUsuario:" for="idUsuario" />
+                            <h:selectOneMenu id="idUsuario" value="#{ordenManagedBean.orden.idUsuario}" title="IdUsuario" required="true" requiredMessage="The IdUsuario field is required.">
+                                <!-- TODO: update below reference to list of available items-->
+                                <f:selectItems value="#{usuarioManagedBean.listar()}" var="lUO" itemLabel="#{lUO.nombres}"/>
+                            </h:selectOneMenu>
+                            <h:outputLabel value="IdVehiculo:" for="idVehiculo" />
+                            <h:selectOneMenu id="idVehiculo" value="#{ordenManagedBean.orden.idVehiculo}" title="IdVehiculo" required="true" requiredMessage="The IdVehiculo field is required.">
+                                <!-- TODO: update below reference to list of available items-->
+                                <f:selectItems value="#{vehiculoManagedBean.listar()}" var="lVO" itemLabel="#{lVO.matricula}"/>
+                            </h:selectOneMenu>
+                            <h:commandButton value="Registrar" actionListener="#{ordenManagedBean.registrarOrden()}"/>
+                        </h:panelGrid>
+                    </h:form>
+                </f:view>
+
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>
